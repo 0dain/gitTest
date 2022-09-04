@@ -1,9 +1,6 @@
 package 실험컨트롤러;
 
-import java.util.ArrayList;
-
 import 미니프로젝트DB연습.dbCon;
-import 미니프로젝트DB연습.회원관리;
 
 public class 컨트롤러 {
 	
@@ -33,9 +30,9 @@ public class 컨트롤러 {
 		//로그인을 진행하기 위한 Controller 요청
 		public String conLogin(String id, String pw) {
 			
-			String nick=dbc.login(id, pw);
+			String ID=dbc.login(id, pw);
 			
-			return nick;
+			return ID;
 		}
 		
 		//탈퇴
@@ -43,6 +40,11 @@ public class 컨트롤러 {
 
 			dbc.delete(id);
 			
+		}
+		
+		//캐릭터 생성
+		public void newChar() {
+			dbc.Newchar();
 		}
 
 	

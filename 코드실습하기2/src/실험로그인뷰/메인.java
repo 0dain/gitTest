@@ -1,6 +1,8 @@
 package 실험로그인뷰;
 
 import java.util.Scanner;
+
+import 미니프로젝트DB연습.캐릭터;
 import 실험컨트롤러.컨트롤러;
 
 public class 메인 {
@@ -45,12 +47,32 @@ public class 메인 {
 				String pw=sc.next();
 				
 				//로그인 성공 시 회원의 닉네임 출력
-				String nick=con.conLogin(id, pw);
-				if(nick!=null) {
-					System.out.println("환영합니다~! "+nick+"님");
+				String ID=con.conLogin(id, pw);
+				if(ID!=null) {
+					System.out.println("환영합니다~! "+ID+"님");
 				}else {
 					System.out.println("회원정보가 없습니다");
 				}
+				
+				System.out.print("[1]캐릭터 신규 생성 [2]캐릭터 선택 [3]캐릭터 삭제 [4]이전 >> ");
+				int login=sc.nextInt();
+				
+				if(login==1) {
+					System.out.print("닉네임을 입력하세요: ");
+					String nick=sc.next();
+					System.out.print("캐릭터 종류를 선택하세요\n[ㄱ]춘식이 [ㄴ]라이언 [ㄷ]프로도 >> ");
+					String charType=sc.next();
+					if(charType.equals("ㄱ")) {
+						charType="춘식이";
+					}else if(charType.equals("ㄴ")) {
+						charType="라이언";
+					}else if(charType.equals("ㄷ")) {
+						charType="프로도";
+					}										
+					캐릭터 ch=new 캐릭터(nick, charType);
+					con.newChar();
+				}
+				
 			}else if(menu==3) {//탈퇴
 				//DB -> delete 작업
 //				ArrayList<회원관리> re=new ArrayList<>();

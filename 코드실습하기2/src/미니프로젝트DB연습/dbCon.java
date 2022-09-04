@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 
 public class dbCon {
 
@@ -113,40 +111,6 @@ public class dbCon {
 		return nick;
 	}
 	
-	//[2-1] 조회
-//	public ArrayList<회원관리> select() {//ArrayList<MemberDTO> 리턴 타입 ArrayList를 쓸 땐 꺽새도 같이 적어야 함!!
-//		//전체 회원의 정보를 담을 수 있는 ArrayList 만들기
-//		ArrayList<회원관리> totalList=new ArrayList<>();//import해주기
-//		
-//		getCon();//DB접속
-//
-//		try {
-//			String sql="select mem_id, mem_pw from Minimember";
-//			psmt=conn.prepareStatement(sql);
-//			
-//			 rs=psmt.executeQuery();//sql문 실행해달라는 명령어 select는 Query임
-//			 
-//			 while(rs.next()) {//.next() rs 안에 데이터가 있는지 없는지 T/F타입으로 반환
-//				String id=rs.getString("mem_id");//rs.getString(1) -> 첫 번째 열에 있는 데이터 가지고 오겠다! 헷갈리면 "id"로 적어도 됨
-//				String pw=rs.getString("mem_pw");
-//				
-////				System.out.println(id+" / "+nick);
-//				회원관리 dto=new 회원관리(id, pw);
-//				totalList.add(dto);//확인된 데이터를 ArrayList배열에 저장해서 리턴해주기!
-//				//한줄로 입력하고 싶을 때 -> totalList.add(new MemberDTO(id, nick));
-//			 }
-//			 
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		finally {
-//			close();
-//		}
-//		return totalList;
-//		
-//	}
-	
-//	String id;
 	//[3]탈퇴
 	public int delete(String id) {
 		
@@ -178,6 +142,36 @@ public class dbCon {
 		return cnt;
 		
 	}
+	
+	//신규 캐릭터 생성
+	
+	
+	public void Newchar() {
+		
+		getCon();//연결, 위에서 이미 try=catch로 확인을 하기 때문에 안 넣어줘도 됨
+		
+		try {
+			캐릭터 ch=new 캐릭터(null, null);
+			String sql="insert into Minimember values(?,?,?,?,1,0,100,0)";//그냥 문장이기 때문에 try-catch에 넣어주지 않아도 됨
+			psmt=conn.prepareStatement(sql);
+			
+			psmt.setString(1,ch.getNick());
+			psmt.setString(2,ch.getmemID());
+			psmt.setString(3,ch.getcharType());
+			psmt.setInt(4,ch.getWork_ability());
+			
+			cnt=psmt.executeUpdate();//sql문장 실행해달라는 명령어, 테이블의 값이 수정, 삭제될 때는 Update쓰기
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			close();
+		}
+		
+	}
+	
 	
 	
 	
