@@ -29,8 +29,10 @@ public class 메인 {
 				System.out.print("비밀번호: ");
 				String pw=sc.next();
 				
-						
-				result=con.conInsert(id, pw);
+				System.out.print("사용자 닉네임: ");
+				String userNick=sc.next();
+										
+				result=con.conInsert(id, pw, userNick);
 				//Controller -> MemberDAO -> id, pw, nick, age -> (DB) 회원가입
 						
 				if(result>0) {
@@ -47,9 +49,9 @@ public class 메인 {
 				String pw=sc.next();
 				
 				//로그인 성공 시 회원의 닉네임 출력
-				String ID=con.conLogin(id, pw);
-				if(ID!=null) {
-					System.out.println("환영합니다~! "+ID+"님");
+				String userNick=con.conLogin(id, pw);
+				if(userNick!=null) {
+					System.out.println("환영합니다~! "+userNick+"님");
 				}else {
 					System.out.println("회원정보가 없습니다");
 				}
@@ -76,10 +78,12 @@ public class 메인 {
 			}else if(menu==3) {//탈퇴
 				//DB -> delete 작업
 //				ArrayList<회원관리> re=new ArrayList<>();
-				System.out.println("삭제할 아이디 입력: ");
+				System.out.print("삭제할 아이디 입력: ");
 				String id=sc.next();
+				System.out.print("비밀번호를 입력하세요: ");
+				String pw=sc.next();
 				System.out.println("삭제되었습니다.");
-				con.conDelete(id);
+				con.conDelete(id, pw);
 				
 			}else if(menu==4) {//종료
 				System.out.println("\n종료됩니다");

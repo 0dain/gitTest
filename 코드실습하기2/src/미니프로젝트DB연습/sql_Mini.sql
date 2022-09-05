@@ -1,7 +1,7 @@
 /* 가제: 갓생살기 게임 테이블*/
 
 /* 회원정보 테이블(id(PK), pw(nn)*/
-create table Minimember(mem_id varchar2(10), mem_pw varchar2(20) not null,
+create table Minimember(mem_id varchar2(10), mem_pw varchar2(20) not null, user_nick varchar2(10),
 constraint minimem_memid_pk primary key(mem_id)
 );
 
