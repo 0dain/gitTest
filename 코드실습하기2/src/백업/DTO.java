@@ -10,7 +10,7 @@ public class DTO {
 			private String usernick;//닉네임
 			
 			
-			public MemDTO(String id, String pw, String usernick) {
+			public DTO(String id, String pw, String usernick) {
 				this.id=id;
 				this.pw=pw;
 				this.usernick=usernick;
