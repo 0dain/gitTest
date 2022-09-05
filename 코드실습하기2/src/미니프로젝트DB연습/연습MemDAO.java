@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MemDAO {
+public class 연습MemDAO {
 
 	//객체 생성
 	Connection conn=null;
@@ -31,7 +31,8 @@ public class MemDAO {
 			
 			if(conn==null) {
 				System.out.println("접속 실패...");
-			}
+			} else
+				System.out.println("접속 성공");
 //			if(conn!=null) {
 //				System.out.println("접속 성공!");
 //			}else {
@@ -66,8 +67,8 @@ public class MemDAO {
 			String sql="insert into Minimember values(?,?,?)";//그냥 문장이기 때문에 try-catch에 넣어주지 않아도 됨
 			psmt=conn.prepareStatement(sql);
 			
-			psmt.setString(1,id);
-			psmt.setString(2,pw);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
 			psmt.setString(3, userNick);
 			
 			cnt=psmt.executeUpdate();//sql문장 실행해달라는 명령어, 테이블의 값이 수정, 삭제될 때는 Update쓰기

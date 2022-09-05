@@ -1,19 +1,19 @@
 package 실험컨트롤러;
 
-import 미니프로젝트DB연습.MemDAO;
+import 미니프로젝트DB연습.연습MemDAO;
 
 public class 컨트롤러 {
 	
 	//Controller역할을 진행하는 클래스
 			//view <-> DAO(DB의 로직)
 		
-		MemDAO dbc=new MemDAO();
+		연습MemDAO dao=new 연습MemDAO();
 		
 		int cnt=0;
 		
 		public int conInsert(String id, String pw, String userNick) {
 			//view가 넘겨준 회원가입에 대한 정보를 DAO로 연결해주는 메서드
-			cnt=dbc.insert(id, pw, userNick);
+			cnt=dao.insert(id, pw, userNick);
 			
 			return cnt;
 		}
@@ -30,7 +30,7 @@ public class 컨트롤러 {
 		//로그인을 진행하기 위한 Controller 요청
 		public String conLogin(String id, String pw) {
 			
-			String ID=dbc.login(id, pw);
+			String ID=dao.login(id, pw);
 			
 			return ID;
 		}
@@ -38,7 +38,7 @@ public class 컨트롤러 {
 		//탈퇴
 		public void conDelete(String id, String pw) {
 
-			dbc.delete(id, pw);
+			dao.delete(id, pw);
 			
 		}
 		
