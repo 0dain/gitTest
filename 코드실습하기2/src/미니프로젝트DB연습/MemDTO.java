@@ -1,6 +1,6 @@
 package 미니프로젝트DB연습;
 
-public class 회원관리 {
+public class MemDTO {
 	
 	//Model -> VO(Value Object)-> DTO(Date Transfer Object)
 	
@@ -21,7 +21,7 @@ public class 회원관리 {
 	//이렇게 묶어서 각각의 생성자를 만들 수 있음!
 
 	//Select 기능 사용 시 ArrayList에 담을 id, nick을 하나의 생성자로 만들기
-	public 회원관리(String id, String pw) {
+	public MemDTO(String id, String pw) {
 		this.id=id;
 		this.nick=pw;
 	}

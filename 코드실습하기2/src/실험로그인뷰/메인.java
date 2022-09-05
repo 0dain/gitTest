@@ -2,7 +2,7 @@ package 실험로그인뷰;
 
 import java.util.Scanner;
 
-import 미니프로젝트DB연습.캐릭터;
+import 미니프로젝트DB연습.CharDTO;
 import 실험컨트롤러.컨트롤러;
 
 public class 메인 {
@@ -69,7 +69,7 @@ public class 메인 {
 					}else if(charType.equals("ㄷ")) {
 						charType="프로도";
 					}										
-					캐릭터 ch=new 캐릭터(nick, charType);
+					CharDTO ch=new CharDTO(nick, charType);
 					con.newChar();
 				}
 				

@@ -2,7 +2,7 @@ package 미니프로젝트DB연습;
 
 import java.util.Random;
 
-public class 캐릭터 {
+public class CharDTO {
 
 	private String nick;
 	private String charType;
@@ -15,7 +15,11 @@ public class 캐릭터 {
 	
 	Random rd=new Random();
 	
-	public 캐릭터(String nick, String charType) {
+	public CharDTO() {
+		
+	}
+	
+	public CharDTO(String nick, String charType) {
 		this.nick=nick;
 		this.charType=charType;
 		this.exp=0;

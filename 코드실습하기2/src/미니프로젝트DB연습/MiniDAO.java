@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class dbCon {
+public class MiniDAO {
 
 	//객체 생성
 	Connection conn=null;
@@ -146,12 +146,12 @@ public class dbCon {
 	//신규 캐릭터 생성
 	
 	
-	public void Newchar() {
+	public void Newchar(CharDTO ch) {
 		
 		getCon();//연결, 위에서 이미 try=catch로 확인을 하기 때문에 안 넣어줘도 됨
 		
 		try {
-			캐릭터 ch=new 캐릭터(null, null);
+//			캐릭터 ch=new 캐릭터(null, null);
 			String sql="insert into Minimember values(?,?,?,?,1,0,100,0)";//그냥 문장이기 때문에 try-catch에 넣어주지 않아도 됨
 			psmt=conn.prepareStatement(sql);
 			
@@ -162,6 +162,10 @@ public class dbCon {
 			
 			cnt=psmt.executeUpdate();//sql문장 실행해달라는 명령어, 테이블의 값이 수정, 삭제될 때는 Update쓰기
 			
+			if(cnt>0) {
+				
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -171,6 +175,9 @@ public class dbCon {
 		}
 		
 	}
+
+	//
+	
 	
 	
 	

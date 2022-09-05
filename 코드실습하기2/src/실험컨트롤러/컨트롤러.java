@@ -1,13 +1,13 @@
 package 실험컨트롤러;
 
-import 미니프로젝트DB연습.dbCon;
+import 미니프로젝트DB연습.MiniDAO;
 
 public class 컨트롤러 {
 	
 	//Controller역할을 진행하는 클래스
 			//view <-> DAO(DB의 로직)
 		
-		dbCon dbc=new dbCon();
+		MiniDAO dbc=new MiniDAO();
 		
 		int cnt=0;
 		
@@ -44,7 +44,7 @@ public class 컨트롤러 {
 		
 		//캐릭터 생성
 		public void newChar() {
-			dbc.Newchar();
+//			dbc.Newchar();
 		}
 
 	
