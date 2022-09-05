@@ -30,6 +30,7 @@ public class CharDTO {
 	}
 	
 	
+	
 	public String getNick() {
 		return nick;
 	}

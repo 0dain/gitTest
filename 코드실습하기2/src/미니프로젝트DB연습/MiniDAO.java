@@ -151,7 +151,7 @@ public class MiniDAO {
 		getCon();//연결, 위에서 이미 try=catch로 확인을 하기 때문에 안 넣어줘도 됨
 		
 		try {
-//			캐릭터 ch=new 캐릭터(null, null);
+//			CharDTO cha=new CharDTO();
 			String sql="insert into Minimember values(?,?,?,?,1,0,100,0)";//그냥 문장이기 때문에 try-catch에 넣어주지 않아도 됨
 			psmt=conn.prepareStatement(sql);
 			

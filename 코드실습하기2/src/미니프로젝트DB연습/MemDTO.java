@@ -9,8 +9,8 @@ public class MemDTO {
 		
 	private String id;
 	private String pw;
-	private String nick;//닉네임
-		
+	private String userNick;//닉네임
+	
 	//이 설계도랑 연결될 수 있는 데이터베이스 클래스가 있어야 함
 		
 	//id
@@ -21,23 +21,41 @@ public class MemDTO {
 	//이렇게 묶어서 각각의 생성자를 만들 수 있음!
 
 	//Select 기능 사용 시 ArrayList에 담을 id, nick을 하나의 생성자로 만들기
-	public MemDTO(String id, String pw) {
+	public MemDTO(String id, String pw, String userNick) {
 		this.id=id;
-		this.nick=pw;
+		this.pw=pw;
+		this.userNick=userNick;
 	}
-		
 
-	//변수가 private으로 잠겨 있을 때 get메서드 사용
+	
+	
+	
 	public String getId() {
 		return id;
 	}
-		
-	public String getNick() {
-		return nick;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	
+
 	public String getPw() {
 		return pw;
 	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	public String getUserNick() {
+		return userNick;
+	}
+
+	public void setUserNick(String userNick) {
+		this.userNick = userNick;
+	}
+		
+
+
+	
 
 }
